@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-BlazorTest-CB18D8CE-E634-4E29-ABE4-ADB7DC76B371</UserSecretsId>
+    <WebProject_DirectoryAccessLevelKey>0</WebProject_DirectoryAccessLevelKey>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="microsoft-identity-web\**" />
+    <Content Remove="microsoft-identity-web\**" />
+    <EmbeddedResource Remove="microsoft-identity-web\**" />
+    <None Remove="microsoft-identity-web\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.AzureAD.UI" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Identity.Web" Version="0.3.0-preview" />
+    <PackageReference Include="Microsoft.Identity.Web.UI" Version="0.3.0-preview" />
+  </ItemGroup>
+
+</Project>

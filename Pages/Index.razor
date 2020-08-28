@@ -1,0 +1,32 @@
+﻿@page "/"
+@using Microsoft.Identity.Web
+@inject MicrosoftIdentityConsentAndConditionalAccessHandler ConsentHandler
+@inject ITestClientWithAuthIncluded TestClientWithAuth
+@inject ITestClientWithoutAuth TestClientWithoutAuth
+
+<h1>Hello, world!</h1>
+
+<p>
+    @Content
+</p>
+
+@code {
+
+    private string Content;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            //Content = await TestClientWithAuth.GetProfileAsync();
+            Content = await TestClientWithoutAuth.GetProfileAsync();
+        }
+        catch (Exception ex)
+        {
+            Content = ex.ToString();
+            ConsentHandler.HandleException(ex);
+        }
+    }
+
+}
+
